@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/circle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	axisY:{
+		includeZero: false
+	},
+	data: [{        
+		type: "line",       
+		dataPoints: [
+			{ y: 450 },
+			{ y: 414},
+			{ y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+			{ y: 460 },
+			{ y: 450 },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 480 },
+			{ y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 510 }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+  <title>MY Dashboard</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-light bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01"
+      aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+    <div class="text-white">
+
+      <i class="fa fa-bell" aria-hidden="true"></i>
+      <i class="fa fa-comment mr-2" aria-hidden="true"></i>Admin User
+      <i class="fa fa-user" aria-hidden="true"></i>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="navbarsExample01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link fa fa-dashboard" href="#"> Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-home" href="#"> Site Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-calendar" href="#"> Calendar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-file-o" href="#"> Private Files</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-graduation-cap" href="#"> My Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-graduation-cap" href="#"> test</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"> Upload</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-wrench" href="#"> Site administration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-plus-square" href="#"> Add a block</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <hr>
+
+
+  <div class="container-fluid">
+    <div class="myBorder">
+      <h1 class="ml-2">Manager Dashboard</h1>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="mainBorder mt-3">
+
+      <div class="card-deck mt-3">
+        <div class="col-md-3">
+          <div class="card bg-white pt-5 pb-5">
+            <div class="card-body text-center">
+              <p class="card-text h1">3/5</p>
+              <p class="card-text h3"><b>Enrolled in <br> Department</b></p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-white pt-5 pb-5">
+            <div class="card-body text-center pb-4">
+              <p class="card-text h1">0</p>
+              <p class="card-text h1">Passed</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-white pt-5 pb-5">
+            <div class="card-body text-center">
+              <p class="card-text h1">0</p>
+              <p class="card-text h1">Failed</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <div class="dropdown">
+            <button type="button" class="btn btn-primary btn-md dropdown-toggle" data-toggle="dropdown">
+      Course Progress
+    </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">Link 1</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+              <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+          </div>
+          <div class="progressPercent">
+
+            <div class="c100 move">
+              <span>0%</span>
+              <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-9">
+          <div class="result ml-3">
+            <h6 class="pt-5">Results</h6>
+            <hr>
+            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+            <div class="checkbox pt-2 pb-2">
+              <i class="fa fa-square-o" aria-hidden="true"></i> Fail User's
+              <i class="fa fa-square" aria-hidden="true"></i> Pass User's
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-3 pr-5">
+          <ul class="list-group sideDashboard">
+            <li class="list-group-item text-dark text-center">My Dashboard!</li>
+            <li class="list-group-item">User's who not enrolled</li>
+            <li class="list-group-item active">Name</li>
+            <li class="list-group-item">Guest User</li>
+            <li class="list-group-item">User Pass</li>
+          </ul>
+          <table class="table">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th>Name</th>
+                <th>Course</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="bg-light">No Data</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="footer1"></div>
+          <div class="footer2 text-color text-center">Copyright <i class="fa fa-copyright"></i> 2018 - Developed by <u> I-Docz </u>. Powered by <u>I-Docz </u></div>
+        </div>
+      </div>
+    </div>
+
+
+  
+  <br>
+
+
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+
+</html>
